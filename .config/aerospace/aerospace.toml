@@ -191,3 +191,15 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+[workspace-to-monitor-force-assignment]
+Q = 'secondary'
+W = 'secondary'
+E = 'secondary'
+R = 'secondary'
+T = 'secondary'
+A = 'secondary'
+S = 'secondary'
+D = 'secondary'
+F = 'secondary'
+G = 'secondary'
