@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Editors and IDEs
+*.swp
+*.swo
+
+# Other common files
+*.log
+*.tmp
+
+# for security reasons
+*.ssh
+.gitconfig.local
+
+# FVM Version Cache
+*.fvm

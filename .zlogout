@@ -1,0 +1,1 @@
+/Users/konoreiji/.zprezto/runcoms/zlogout

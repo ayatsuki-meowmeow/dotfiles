@@ -1,0 +1,9 @@
+[alias]
+	pushup = !git push -u origin HEAD
+	ps = push
+	pl = pull
+	cleanup = fetch --prune
+	sync-branches = "!git fetch --prune 2>&1 | grep 'Deleted remote tracking branch' | awk '{print $NF}' | sed 's|origin/||' | xargs -r git branch -d"
+
+[include]
+	path = ~/.gitconfig.local

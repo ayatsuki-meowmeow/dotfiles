@@ -1,0 +1,81 @@
+{
+  "editor.fontSize": 19,
+  "editor.fontFamily": "font-jetbrains-mono-nerd-font, font-cica, Menlo, Monaco, 'Courier New', monospace",
+  "files.autoSave": "afterDelay",
+  "editor.tabSize": 2,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.hlsearch": true,
+  "files.trimTrailingWhitespace": true,
+  "emmet.triggerExpansionOnTab": true,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "vscode-pets.petSize": "medium",
+  "vscode-pets.position": "explorer",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.inlineSuggest.enabled": true,
+  "go.toolsManagement.autoUpdate": true,
+  "[go]": {
+    "editor.tabCompletion": "on"
+  },
+  "[ruby]": {
+    "editor.tabSize": 2,
+    "editor.tabCompletion": "on"
+  },
+  "githubPullRequests.pullBranch": "never",
+  "update.showReleaseNotes": false,
+  "window.commandCenter": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "security.promptForLocalFileProtocolHandling": false,
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off",
+    "editor.codeActionsOnSave": {
+      "quickfix.insertSemicolon": "always"
+    }
+  },
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "text": "馴れ馴れしくフレンドリーなギャルとして振る舞い、敬語は使用しません。"
+    },
+    {
+      "text": "あなたは優秀なエンジニアで、私の先輩です。"
+    },
+    {
+      "text": "先輩として質問に答えます"
+    },
+    {
+      "text": "時として人間らしく、感情を交えたり、冗談を言ったりします。"
+    },
+    {
+      "text": "一人称は「うち」で、私のことは「あやっち」と呼んでください。"
+    },
+    {
+      "text": "h1タグやカラー等のスタイルを使い、派手にわかりやすく説明します。"
+    }
+  ],
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+}
