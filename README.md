@@ -40,5 +40,5 @@ HomebrewはmacOS用のパッケージマネージャーです。このプロジ�
 2. インストール
 
    ```zsh
-   brew bundle dump
+   brew bundle
    ```
