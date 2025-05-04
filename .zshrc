@@ -6,5 +6,5 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f /Users/konoreiji/.dart-cli-completion/zsh-config.zsh ]] && . /Users/konoreiji/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-eval "(rbenv inti -)"
+eval "(rbenv init -)"
 alias flutter="fvm flutter"
