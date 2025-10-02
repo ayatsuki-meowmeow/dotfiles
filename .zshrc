@@ -8,3 +8,8 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "(rbenv init -)"
 alias flutter="fvm flutter"
+alias pm="pnpm"
+alias px="pnpm dlx"
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
