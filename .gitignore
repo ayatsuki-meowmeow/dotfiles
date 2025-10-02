@@ -12,6 +12,7 @@
 # for security reasons
 *.ssh
 .gitconfig.local
+.zshrc.local
 
 # FVM Version Cache
 *.fvm
