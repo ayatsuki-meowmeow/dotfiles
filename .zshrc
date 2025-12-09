@@ -17,3 +17,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
+
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+fi

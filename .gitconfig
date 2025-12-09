@@ -4,6 +4,7 @@
 	pl = pull
 	cleanup = fetch --prune
 	sync-branches = "!git fetch --prune 2>&1 | grep 'Deleted remote tracking branch' | awk '{print $NF}' | sed 's|origin/||' | xargs -r git branch -d"
+	gap = "!f() { git diff --shortstat origin/$1; }; f"
 
 [include]
 	path = ~/.gitconfig.local
