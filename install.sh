@@ -26,7 +26,7 @@ echo "Starting setup..."
 for f in .??*; do
     # シンボリックリンクを作成したくないファイル/ディレクトリを除外
     case "$f" in
-        .git | .gitmodules | .gitignore | .gitconfig.local.template | README.md | LICENSE | install.sh ) # スクリプト名やREADMEなどを追加
+        .git | .gitmodules | .gitignore | .gitconfig.local.template | README.md | LICENSE | install.sh | .ssh ) # スクリプト名やREADMEなどを追加
             echo "Skipping $f"
             continue
             ;;
@@ -38,6 +38,23 @@ for f in .??*; do
 done
 
 echo "Linking process finished."
+
+# .ssh/config の個別処理
+if [ -f "$DOTFILES_DIR/.ssh/config" ]; then
+    echo "Setting up .ssh/config..."
+    mkdir -p "$HOME/.ssh"
+    chmod 700 "$HOME/.ssh"
+    ln -snfv "$DOTFILES_DIR/.ssh/config" "$HOME/.ssh/config"
+    chmod 600 "$HOME/.ssh/config"
+fi
+
+# .ssh/config.local の処理
+if [ ! -e "$HOME/.ssh/config.local" ] && [ -e "$DOTFILES_DIR/.ssh/config.local.template" ]; then
+    echo "Creating ~/.ssh/config.local from template..."
+    cp "$DOTFILES_DIR/.ssh/config.local.template" "$HOME/.ssh/config.local"
+    chmod 600 "$HOME/.ssh/config.local"
+    echo "Please edit ~/.ssh/config.local to add your private SSH configurations."
+fi
 
 # .gitconfig.local の処理
 if [ ! -e "$HOME/.gitconfig.local" ] && [ -e "$DOTFILES_DIR/.gitconfig.local.template" ]; then

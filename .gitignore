@@ -10,7 +10,9 @@
 *.tmp
 
 # for security reasons
-*.ssh
+.ssh/*
+!.ssh/config
+!.ssh/config.local.template
 .gitconfig.local
 .zshrc.local
 
