@@ -10,3 +10,5 @@
 	path = ~/.gitconfig.local
 [core]
 	editor = nvim
+[rerere]
+	enabled = true
