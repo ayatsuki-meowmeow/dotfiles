@@ -19,6 +19,64 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.typescript" },
+    {
+      "shellRaining/hlchunk.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      config = function()
+        require("hlchunk").setup({
+          chunk = { enable = true },
+          indent = { enable = true },
+          line_num = { enable = true },
+        })
+      end,
+    },
+    {
+      "dnlhc/glance.nvim",
+      cmd = "Glance",
+      keys = {
+        { "gR", "<cmd>Glance references<cr>", desc = "Glance References" },
+        { "gD", "<cmd>Glance definitions<cr>", desc = "Glance Definitions" },
+        { "gY", "<cmd>Glance type_definitions<cr>", desc = "Glance Type Definitions" },
+        { "gM", "<cmd>Glance implementations<cr>", desc = "Glance Implementations" },
+      },
+    },
+    {
+      "bassamsdata/namu.nvim",
+      opts = {
+        global = {},
+        namu_symbols = {
+          options = {},
+        },
+      },
+      keys = {
+        { "<leader>ss", "<cmd>Namu symbols<cr>", desc = "Jump to LSP symbol" },
+        { "<leader>sw", "<cmd>Namu workspace<cr>", desc = "LSP Symbols - Workspace" },
+      },
+    },
+    {
+      "OXY2DEV/markview.nvim",
+      lazy = false,
+
+      -- Completion for `blink.cmp`
+      -- dependencies = { "saghen/blink.cmp" },
+    },
+    {
+      "okuuva/auto-save.nvim",
+      event = { "InsertLeave", "TextChanged" },
+      opts = {
+        enabled = true,
+        debounce_delay = 2000, -- 2秒待ってから保存（auto-formatと併用するなら長めが安定）
+        -- 保存したくないファイルタイプを除外
+        condition = function(buf)
+          local filetype = vim.fn.getbufvar(buf, "&filetype")
+          -- gitcommitやharpoonなど保存不要なものは除外
+          if vim.list_contains({ "gitcommit", "gitrebase" }, filetype) then
+            return false
+          end
+          return true
+        end,
+      },
+    },
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -31,7 +89,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "iceberg", "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
