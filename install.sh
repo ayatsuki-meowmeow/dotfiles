@@ -62,6 +62,13 @@ if [ ! -e "$HOME/.gitconfig.local" ] && [ -e "$DOTFILES_DIR/.gitconfig.local.tem
     cp "$DOTFILES_DIR/.gitconfig.local.template" "$HOME/.gitconfig.local"
 fi
 
+# cmux config の処理
+if [ -f "$DOTFILES_DIR/.config/ghostty/config" ]; then
+    echo "Setting up cmux config..."
+    mkdir -p "$HOME/Library/Application Support/com.cmuxterm.app"
+    ln -snfv "$DOTFILES_DIR/.config/ghostty/config" "$HOME/Library/Application Support/com.cmuxterm.app/config.ghostty"
+fi
+
 # Emacs / Cask の処理 (必要なら)
 if [ -d "$THIS_DIR/.emacs.d" ] && which cask >/dev/null 2>&1; then
   echo "Setting up .emacs.d..."
