@@ -78,12 +78,22 @@ if [ -d "$THIS_DIR/.emacs.d" ] && which cask >/dev/null 2>&1; then
   cd "$THIS_DIR" # 元のディレクトリに戻る
 fi
 
+# fzf-git.sh の処理
+echo "Installing fzf-git.sh..."
+curl -sfo "$HOME/.fzf-git.sh" https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh
+
 # Brewfile の処理 (必要なら)
 if which brew >/dev/null 2>&1; then
     echo "Running brew bundle..."
     brew bundle --verbose --file="$DOTFILES_DIR/Brewfile"
 else
     echo "Homebrew not found, skipping brew bundle."
+fi
+
+# gh extensions の処理
+if which gh >/dev/null 2>&1; then
+    echo "Installing gh extensions..."
+    gh extension install seachicken/gh-poi
 fi
 
 cat << END

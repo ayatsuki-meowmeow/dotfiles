@@ -1,6 +1,6 @@
 {
   "extras": [
-
+    "editor.fzf"
   ],
   "install_version": 8,
   "news": {
