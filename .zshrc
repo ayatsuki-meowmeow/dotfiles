@@ -13,6 +13,7 @@ alias px="pnpm dlx"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="/Users/konoreiji/.bun/bin:$PATH"
 
 source <(fzf --zsh)
 source ~/.fzf-git.sh

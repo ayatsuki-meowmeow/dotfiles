@@ -20,6 +20,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.typescript" },
     { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.tailwind" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.go" },
     {
       "shellRaining/hlchunk.nvim",
       event = { "BufReadPre", "BufNewFile" },
