@@ -4,8 +4,8 @@ font-family = Cica
 font-size = 18
 
 # 背景透過・ブラー
-background-opacity = 0.5
-background-blur-radius = 50
+background-opacity = 0.85
+background-blur-radius = 20
 
 # Iceberg Dark カラースキーム
 background = #161821

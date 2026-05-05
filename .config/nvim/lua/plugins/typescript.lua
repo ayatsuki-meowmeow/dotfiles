@@ -12,7 +12,7 @@ return {
     end,
   },
 
-  -- vtsls: ファイル移動時のimport自動更新を有効化
+  -- vtsls: ファイル移動時のimport自動更新を有効化 + drizzle等の複雑な型への対応
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -21,6 +21,10 @@ return {
           settings = {
             typescript = {
               updateImportsOnFileMove = { enabled = "always" },
+              -- drizzle-ormの複雑な型推論のためメモリ上限を引き上げ
+              tsserver = {
+                maxTsServerMemory = 4096,
+              },
             },
             javascript = {
               updateImportsOnFileMove = { enabled = "always" },
