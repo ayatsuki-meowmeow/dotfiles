@@ -1,7 +1,5 @@
 {
-  "extras": [
-    "editor.fzf"
-  ],
+  "extras": [],
   "install_version": 8,
   "news": {
     "NEWS.md": "11866"

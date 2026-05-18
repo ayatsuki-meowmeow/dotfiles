@@ -18,9 +18,9 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.typescript" },
-    { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.tailwind" },
-    { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.tailwind" },
+    { import = "lazyvim.plugins.extras.lang.go" },
     {
       "shellRaining/hlchunk.nvim",
       event = { "BufReadPre", "BufNewFile" },
