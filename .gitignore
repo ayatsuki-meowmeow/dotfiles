@@ -19,3 +19,10 @@
 
 # FVM Version Cache
 *.fvm
+
+# Claude Code (機密・揮発性が高いものは追跡しない)
+.claude/.credentials.json
+.claude/auth.json
+.claude/sessions/
+.claude/projects/
+.claude/*.log

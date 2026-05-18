@@ -26,7 +26,7 @@ echo "Starting setup..."
 for f in .??*; do
     # シンボリックリンクを作成したくないファイル/ディレクトリを除外
     case "$f" in
-        .git | .gitmodules | .gitignore | .gitconfig.local.template | README.md | LICENSE | install.sh | .ssh ) # スクリプト名やREADMEなどを追加
+        .git | .gitmodules | .gitignore | .gitconfig.local.template | README.md | LICENSE | install.sh | .ssh | .claude ) # スクリプト名やREADMEなどを追加
             echo "Skipping $f"
             continue
             ;;
@@ -54,6 +54,13 @@ if [ ! -e "$HOME/.ssh/config.local" ] && [ -e "$DOTFILES_DIR/.ssh/config.local.t
     cp "$DOTFILES_DIR/.ssh/config.local.template" "$HOME/.ssh/config.local"
     chmod 600 "$HOME/.ssh/config.local"
     echo "Please edit ~/.ssh/config.local to add your private SSH configurations."
+fi
+
+# .claude/CLAUDE.md の個別処理 (ディレクトリは丸ごとリンクせず、ファイル単位で配置)
+if [ -f "$DOTFILES_DIR/.claude/CLAUDE.md" ]; then
+    echo "Setting up .claude/CLAUDE.md..."
+    mkdir -p "$HOME/.claude"
+    ln -snfv "$DOTFILES_DIR/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 fi
 
 # .gitconfig.local の処理
