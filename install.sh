@@ -63,6 +63,36 @@ if [ -f "$DOTFILES_DIR/.claude/CLAUDE.md" ]; then
     ln -snfv "$DOTFILES_DIR/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 fi
 
+# .claude/hooks/commit-workflow-reminder.sh の個別処理
+# フックスクリプトは symlink で配置し、settings.json には jq で冪等マージする。
+# settings.json は各マシン固有の実体ファイルとして維持する（symlink しない）:
+#   - 既に存在する場合 -> PreToolUse フック定義を追記マージ（重複登録しない）
+#   - 存在しない場合   -> 空オブジェクトから新規作成してマージ
+if [ -f "$DOTFILES_DIR/.claude/hooks/commit-workflow-reminder.sh" ]; then
+    echo "Setting up commit-workflow reminder hook..."
+    mkdir -p "$HOME/.claude/hooks"
+    ln -snfv "$DOTFILES_DIR/.claude/hooks/commit-workflow-reminder.sh" "$HOME/.claude/hooks/commit-workflow-reminder.sh"
+
+    SETTINGS="$HOME/.claude/settings.json"
+    HOOK_CMD="$HOME/.claude/hooks/commit-workflow-reminder.sh"
+    if which jq >/dev/null 2>&1; then
+        [ -f "$SETTINGS" ] || echo '{}' > "$SETTINGS"
+        TMP_SETTINGS=$(mktemp)
+        # 既存の同一 command エントリを除去してから追記することで冪等にする
+        jq --arg cmd "$HOOK_CMD" '
+          .hooks //= {} |
+          .hooks.PreToolUse = (
+            [ (.hooks.PreToolUse // [])[]
+              | select(((.hooks // []) | map(.command) | index($cmd)) | not) ]
+            + [ { matcher: "Bash", hooks: [ { type: "command", command: $cmd } ] } ]
+          )
+        ' "$SETTINGS" > "$TMP_SETTINGS" && mv "$TMP_SETTINGS" "$SETTINGS"
+        echo "  -> commit-workflow hook を $SETTINGS に登録しました"
+    else
+        echo "  -> jq が見つかりません。$SETTINGS に PreToolUse フックを手動で追加してください"
+    fi
+fi
+
 # .gitconfig.local の処理
 if [ ! -e "$HOME/.gitconfig.local" ] && [ -e "$DOTFILES_DIR/.gitconfig.local.template" ]; then
     echo "Creating ~/.gitconfig.local from template..."
