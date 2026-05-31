@@ -20,6 +20,9 @@
 # FVM Version Cache
 *.fvm
 
+# Raycast extensions (再インストール可能な生成物。自動更新で大量 diff が出るため追跡しない)
+.config/raycast/extensions/
+
 # Claude Code (機密・揮発性が高いものは追跡しない)
 .claude/.credentials.json
 .claude/auth.json
