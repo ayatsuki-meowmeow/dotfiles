@@ -23,6 +23,9 @@
 # Raycast extensions (再インストール可能な生成物。自動更新で大量 diff が出るため追跡しない)
 .config/raycast/extensions/
 
+# CLI ツールの設定キャッシュ (lastUpdateCheck 等が自動更新され diff が出るため追跡しない)
+.config/configstore/
+
 # Claude Code (機密・揮発性が高いものは追跡しない)
 .claude/.credentials.json
 .claude/auth.json
