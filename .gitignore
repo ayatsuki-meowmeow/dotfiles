@@ -15,6 +15,7 @@
 !.ssh/config.local.template
 .gitconfig.local
 .zshrc.local
+.nvim.local.lua
 .config/gh/*
 
 # FVM Version Cache

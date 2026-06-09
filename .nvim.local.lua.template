@@ -1,0 +1,19 @@
+-- ~/.nvim.local.lua
+--
+-- このマシン固有の Neovim 設定 (dotfiles 管理外)。
+-- init.lua 末尾で dofile されるため、autocmd / keymap / option など何でも書けます。
+-- このテンプレートをコピーして自分の環境に合わせて編集してください:
+--   cp ~/.nvim.local.lua.template ~/.nvim.local.lua
+--
+-- 例) 特定リポジトリ配下だけタブインデントにする
+--    (LazyVim デフォルトの expandtab だと、タブ前提のプロジェクトで差分が大量に出るため)
+--
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
+--   pattern = { "*/hoge/*", "*/hoge-worktrees/*" },
+--   callback = function()
+--     vim.bo.expandtab = false
+--     vim.bo.tabstop = 2
+--     vim.bo.shiftwidth = 2
+--     vim.bo.softtabstop = 0
+--   end,
+-- })

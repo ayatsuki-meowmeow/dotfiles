@@ -26,7 +26,7 @@ echo "Starting setup..."
 for f in .??*; do
     # シンボリックリンクを作成したくないファイル/ディレクトリを除外
     case "$f" in
-        .git | .gitmodules | .gitignore | .gitconfig.local.template | README.md | LICENSE | install.sh | .ssh | .claude ) # スクリプト名やREADMEなどを追加
+        .git | .gitmodules | .gitignore | .gitconfig.local.template | .nvim.local.lua.template | README.md | LICENSE | install.sh | .ssh | .claude ) # スクリプト名やREADMEなどを追加
             echo "Skipping $f"
             continue
             ;;
@@ -97,6 +97,13 @@ fi
 if [ ! -e "$HOME/.gitconfig.local" ] && [ -e "$DOTFILES_DIR/.gitconfig.local.template" ]; then
     echo "Creating ~/.gitconfig.local from template..."
     cp "$DOTFILES_DIR/.gitconfig.local.template" "$HOME/.gitconfig.local"
+fi
+
+# .nvim.local.lua の処理 (Neovim のマシン固有設定。dotfiles 管理外)
+if [ ! -e "$HOME/.nvim.local.lua" ] && [ -e "$DOTFILES_DIR/.nvim.local.lua.template" ]; then
+    echo "Creating ~/.nvim.local.lua from template..."
+    cp "$DOTFILES_DIR/.nvim.local.lua.template" "$HOME/.nvim.local.lua"
+    echo "Please edit ~/.nvim.local.lua to add your machine-specific Neovim settings."
 fi
 
 # cmux config の処理
