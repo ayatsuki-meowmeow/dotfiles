@@ -27,6 +27,9 @@
 # CLI ツールの設定キャッシュ (lastUpdateCheck 等が自動更新され diff が出るため追跡しない)
 .config/configstore/
 
+# Vercel プラグインのランタイム状態 (セッション情報・タイムスタンプ)
+.config/vercel-plugin/
+
 # Claude Code (機密・揮発性が高いものは追跡しない)
 .claude/.credentials.json
 .claude/auth.json
