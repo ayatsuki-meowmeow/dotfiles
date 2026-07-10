@@ -18,6 +18,10 @@ export PATH="/Users/konoreiji/.bun/bin:$PATH"
 source <(fzf --zsh)
 source ~/.fzf-git.sh
 
+bf() { local f; f=$(ls | fzf) && bat -- "$f"; }
+vf() { local f; f=$(ls | fzf) && nvim -- "$f"; }
+cf() { local d; d=$(ls -d */ | fzf) && cd -- "$d"; }
+
 eval "$(zoxide init zsh)"
 
 if [ -f ~/.zshrc.local ]; then
