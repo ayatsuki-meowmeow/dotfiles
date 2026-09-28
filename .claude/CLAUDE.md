@@ -51,3 +51,4 @@
     - `.git/config` を書き換える操作: `push -u` / `branch -m` / `worktree add` / `remote` / `config`
   - worktree の中の `status` / `diff` / `log` / `add` / `commit` などは、これまでどおり `git -C <worktree>` でよい
   - 権限エラーやプロキシ認証エラーが出たら、まず単独・前置きなしで叩き直して切り分ける
+- パスは変数に入れず、リテラルの絶対パスで直接書く。D=/path; cmd "$D/x" は権限エンジンがパスを解決できず、承認画面から判断材料が消える
