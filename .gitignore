@@ -30,6 +30,10 @@
 # Vercel プラグインのランタイム状態 (セッション情報・タイムスタンプ)
 .config/vercel-plugin/
 
+# Herdr のランタイム状態 (セッション・ログ・ソケット)。設定ファイルだけ追跡する
+.config/herdr/*
+!.config/herdr/config.toml
+
 # Claude Code (機密・揮発性が高いものは追跡しない)
 .claude/.credentials.json
 .claude/auth.json
